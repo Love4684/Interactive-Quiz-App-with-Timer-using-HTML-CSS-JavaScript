@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+    
+    <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+  <!-- jQuery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+  <!-- Auto Complete -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@7.2.0/dist/css/autoComplete.min.css">
+
+  <!-- External CSS -->
+  <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='style.css') }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Coding Quiz Challenge</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="assets/style.css">
+</head>
+
+<body>
+    <!-- Sound effect for correct answer -->
+    <audio id="win">
+        <source src="media/service-bell_daniel_simion.mp3" type="audio/mpeg">
+    </audio>
+    <!-- Sound effect for incorrect answer -->
+    <audio id="lose">
+        <source src="media/Robot_blip-Marianne_Gagnon-120342607.mp3" type="audio/mpeg">
+    </audio>
+    <!-- Sound effect for timeout -->
+    <audio id="timeout">
+        <source src="media/Smashing-Yuri_Santana-1233262689.mp3" type="audio/mpeg"> -->
+    </audio>
+    <!-- DEFINES THE QUIZ CONTAINER -->
+    <header>
+        <div class="highScore"><button class="btn btn-success btn-lg float-left" type="button">View Highscores</button></div>
+        <div class="timer"><button class="btn btn-success btn-lg float-right" > 
+            Time: 75  
+    </button> </div>
+    
+      
+    </header>
+    <div class="container" id="quizContainer">
+        <!-- DEFINES FIRST ROW -->
+
+        <div class="row">
+            <!-- FIRST COLUMN CONTAINS A CARD DISPLAYING GAME INFO -->
+            <div class="col-lg-12">
+                <!-- CARD DISPLAY WITH START BUTTON -->
+                <div class="card" style="width: 100%">
+
+                    <div class="card-body">
+                        <h1 class="card-title">Coding Quiz Challenge</h1>
+                        <hr id="win" />
+                        <p class="card-text">This test will assess your knowledge of basic
+
+                            JavaScript with 5 multiple choice questions.
+
+                            Click the "Start" button to begin the quiz.
+
+                            You will have 75 seconds to complete the assessment.
+
+                            Each incorrect answer will cost you 10 seconds of clock time.
+
+                            Your score will your be your time remaining.
+                            <br>
+                            <br>
+                            <strong>Good Luck!</strong>
+                        </p>
+                        <hr id="win" />
+                    </div>
+                    <div>
+                        <div>
+                            <button type="button" class="btn btn-dark" id="start">Start Quiz</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SECOND COLUMN IN THE ROW -->
+            <div class="col-lg-12" id="removePadding">
+
+                <br>
+                <!-- DISPLAYS THE CURRENT QUESTION  -->
+                <div class="question-display"></div>
+                <br>
+                <!-- DISPLAYS THE BUTTON ARRAY  -->
+                <ul id="button-display"></ul>
+
+                <!-- DISPLAYS WHETHER USER IS RIGHT OR WRONG -->
+                <div class="areYouRight">
+                    <div class="timeout"></div>
+                </div>
+
+                <!-- DISPLAYS THE LAST PAGE WITH STATS AND GETS INITIALS FOR HIGH SCORE  -->
+                <div class="final-page" style="display: none">
+                    <div id="message"></div>
+                    <div id="score"></div>
+                    <div id="correct"></div>
+                    <div id="incorrect"></div>
+                    <br>
+                    <div id="initials">
+                        <form>
+                            Enter initials:<input type="text" placeholder="Enter initials here" id="userInput"
+                                name="initials">
+                            <input type="button" id="submitInitials" style="color:white;" value="Submit">
+                        </form>
+                    </div>
+                    
+
+                </div>
+                <div class="highScorePage" style="display:none">
+                    <h1 id="hsTitle">Highscores</h1>
+                    <hr id="win" />
+                    <ul id="hsArray"></ul>
+                    <!-- <hr id = "win"/> -->
+                    <div>
+                        <button type="button" id="goBack">Back</button>
+                        <button type="button" id="resetScores">Reset Highscores</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="footer">
+        <br/> 
+        <div class="social" style="margin-bottom: 8px">
+        <a class="social-icons" href="https://github.com/love4684" target="_blank"><i class="fa fa-github-alt" style="font-size:24px;color: #e4e0e0"></i></a>
+        <a class="social-icons" href="https://linkedin.com/in/love4684" target="_blank"><i class="fa fa-linkedin-square" style="font-size:24px;color: #e4e0e0"></i></a>
+        <a class="social-icons" href="https://www.instagram.com/kumar_love4684/" target="_blank"><i class="fa fa-instagram" style="font-size:24px;color: #e4e0e0"></i></a>
+        <a class="social-icons" href="https://www.facebook.com/Love4684" target="_blank"><i class="fa fa-facebook" style="font-size:24px;color: #e4e0e0"></i></a>
+
+      </div>
+      </footer>
+    </div>
+    <!-- LINK TO JAVASCRIPT FILE -->
+    <script src="assets/script.js"></script>
+
+</body>
+
+</html>
