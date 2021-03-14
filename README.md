@@ -5,7 +5,6 @@
 
 ### Web Design By Tripp Parham
 
-### Published: Thursday December 5th 2019
 
 # Description
 
@@ -16,11 +15,11 @@ As a web developer, you will probably be asked to complete a coding assessment. 
 # Installation instructions
 
 * No installation necessary. Any main stream browser can be used.
-* Click the following link:
+* Click the following link to play: [click](https://love4684.github.io/Interactive-Quiz-App-with-Timer-using-HTML-CSS-JavaScript/)
 
     
 
-* Code repository located in Github at:
+* Code repository located in Github at: [QUIZ](https://github.com/Love4684/Interactive-Quiz-App-with-Timer-using-HTML-CSS-JavaScript)
 
     
 
